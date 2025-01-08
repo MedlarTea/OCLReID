@@ -123,6 +123,6 @@ mmtrack/.mim
 *.sh~
 
 # ckpt
-checkpoints/reid/*
+.checkpoints/reid/resnet18.pth
 mmtrack/models/pose/Models/*
 mmtrack/models/pose/YOLOX/weights/*
