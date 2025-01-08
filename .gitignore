@@ -123,5 +123,7 @@ mmtrack/.mim
 *.sh~
 
 # ckpt
+checkpoints/*
+!mmtrack/models/orientation/checkpoints/keypoints_net.pth
 mmtrack/models/pose/Models/*
 mmtrack/models/pose/YOLOX/weights/*
