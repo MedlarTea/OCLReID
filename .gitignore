@@ -126,4 +126,3 @@ mmtrack/.mim
 checkpoints/*
 mmtrack/models/pose/Models/*
 mmtrack/models/pose/YOLOX/weights/*
-configs/*
