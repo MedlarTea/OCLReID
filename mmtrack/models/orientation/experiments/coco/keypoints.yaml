@@ -1,0 +1,77 @@
+AUTO_RESUME: true
+CUDNN:
+  BENCHMARK: true
+  DETERMINISTIC: false
+  ENABLED: true
+DATA_DIR: ''
+GPUS: (0,)
+OUTPUT_DIR: 'output'
+LOG_DIR: 'log'
+WORKERS: 2
+PRINT_FREQ: 30
+
+DATASET:
+  COLOR_RGB: true
+  DATASET: 'Simple_Dataset'
+  DATA_FORMAT: jpg
+  FLIP: true
+  NUM_JOINTS_HALF_BODY: 23
+  ROT_FACTOR: 45
+  SCALE_FACTOR: 0.35
+  HOE_SIGMA: 4.0
+
+MODEL:
+  INIT_WEIGHTS: true
+  USE_FEATUREMAP: true
+  NAME: keypoints_net
+  NUM_JOINTS: 17
+  PRETRAINED: 'models/pose_hrnet_w32_256x192.pth'
+  # PRETRAINED: 'models/checkpoint.pth'
+  TARGET_TYPE: gaussian
+  IMAGE_SIZE:
+  - 192
+  - 256
+  HEATMAP_SIZE:
+  - 48
+  - 64
+  SIGMA: 2
+
+LOSS:
+  USE_DIFFERENT_JOINTS_WEIGHT: false
+  USE_TARGET_WEIGHT: true
+TRAIN:
+  BATCH_SIZE_PER_GPU: 256
+  SHUFFLE: true
+  BEGIN_EPOCH: 0
+  END_EPOCH: 80
+  OPTIMIZER: adam
+  LR: 0.001
+  LR_FACTOR: 0.1
+  LR_STEP:
+  - 170
+  - 200
+  WD: 0.0001
+  GAMMA1: 0.99
+  GAMMA2: 0.0
+  MOMENTUM: 0.9
+  NESTEROV: false
+TEST:
+  BATCH_SIZE_PER_GPU: 8
+  COCO_BBOX_FILE: 'data/coco/person_detection_results/COCO_val2017_detections_AP_H_56_person.json'
+  BBOX_THRE: 1.0
+  IMAGE_THRE: 0.0
+  IN_VIS_THRE: 0.2
+  MODEL_FILE: 'checkpoints/keypoints_net.pth'
+  # MODEL_FILE: 'models/model_hboe.pth'
+  NMS_THRE: 1.0
+  OKS_THRE: 0.9
+  USE_GT_BBOX: true
+  FLIP_TEST: true
+  POST_PROCESS: true
+  SHIFT_HEATMAP: true
+DEBUG:
+  DEBUG: true
+  SAVE_BATCH_IMAGES_GT: true
+  SAVE_BATCH_IMAGES_PRED: true
+  SAVE_HEATMAPS_GT: true
+  SAVE_HEATMAPS_PRED: true
