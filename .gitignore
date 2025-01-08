@@ -124,5 +124,6 @@ mmtrack/.mim
 
 # ckpt
 !mmtrack/models/orientation/checkpoints/keypoints_net.pth
+!checkpoints/reid/resnet18.pth
 mmtrack/models/pose/Models/*
 mmtrack/models/pose/YOLOX/weights/*
