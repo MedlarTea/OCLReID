@@ -38,6 +38,10 @@ python run_video.py --show_result
 ```
 This would run the `./demo.mp4`.
 
+### Run on the customized dataset
+Our customized dataset is provided in `dataset` directory with four scenarios: `corridor1`, `corridor2`, `lab_corridor` and `room`. We provide `raw_video.mp4` and `labels.txt` for each scenario. Specifically, bbox annotations in the `label.txt` are represented as `x1,y1,w,h`.
+
+*Note: the annotations are rough, but should be enough for evaluating the ReID performance of algorithms.*
 
 
 ## Citation
